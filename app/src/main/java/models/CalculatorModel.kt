@@ -12,5 +12,7 @@ class CalculatorModel {
     fun divide(): Double {
         return if (num2!=0.0) num1 / num2 else 0.0
     }
+    fun percent(): Double = num1 % num2
+    fun sqrt(): Double = Math.sqrt(num1)
 
 }

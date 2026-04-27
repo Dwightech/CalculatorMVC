@@ -24,6 +24,8 @@ class MainActivity : ComponentActivity() {
         val btnSubtract = findViewById<Button>(R.id.button_subtract)
         val btnMultiply = findViewById<Button>(R.id.button_multiply)
         val btnDivide = findViewById<Button>(R.id.button_divide)
+        val btnPercent = findViewById<Button>(R.id.button_percent)
+        val btnSqrt = findViewById<Button>(R.id.button_sqrt)
         val btnClear = findViewById<Button>(R.id.button_clear)
         val result = findViewById<TextView>(R.id.textViewAnswer)
 
@@ -61,6 +63,20 @@ class MainActivity : ComponentActivity() {
             calcModel.num1 = n1
             calcModel.num2 = n2
             val calcResult = calcModel.divide()
+            result.text = "Answer: $calcResult"
+        }
+        btnPercent.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
+            calcModel.num1 = n1
+            calcModel.num2 = n2
+            val calcResult = calcModel.percent()
+            result.text = "Answer: $calcResult"
+        }
+        btnSqrt.setOnClickListener {
+            val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
+            calcModel.num1 = n1
+            val calcResult = calcModel.sqrt()
             result.text = "Answer: $calcResult"
         }
         btnClear.setOnClickListener {
