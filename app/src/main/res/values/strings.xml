@@ -3,10 +3,12 @@
     <string name="Calculator">Calculator</string>
     <string name="enterNum1">Enter Number 1</string>
     <string name="enterNum2">Enter Number 2</string>
-    <string name="btnAdd">Add</string>
-    <string name="btnSubtract">Subtract</string>
-    <string name="btnMultiply">Multiply</string>
-    <string name="btnDivide">Divide</string>
+    <string name="btnAdd">+</string>
+    <string name="btnSubtract">-</string>
+    <string name="btnMultiply">×</string>
+    <string name="btnDivide">÷</string>
+    <string name="btnPercent">%</string>
+    <string name="btnSqrt">√</string>
     <string name="btnClear">Clear</string>
     <string name="zero">0.0</string>
 </resources>

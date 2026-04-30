@@ -48,28 +48,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+" />
+            android:text="@string/btnAdd" />
 
         <Button
             android:id="@+id/button_subtract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-" />
+            android:text="@string/btnSubtract" />
 
         <Button
             android:id="@+id/button_multiply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="×" />
+            android:text="@string/btnMultiply" />
 
         <Button
             android:id="@+id/button_divide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="÷" />
+            android:text="@string/btnDivide" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,14 +82,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%" />
+            android:text="@string/btnPercent" />
 
         <Button
             android:id="@+id/button_sqrt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="√" />
+            android:text="@string/btnSqrt" />
     </LinearLayout>
 
     <Button
