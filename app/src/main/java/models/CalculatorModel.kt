@@ -1,6 +1,20 @@
 package models
 
 class CalculatorModel {
+
+    private val history = mutableListOf<String>()
+
+    fun addHistory(operation: String) {
+        history.add(operation)
+    }
+
+    fun getHistory(): List<String> = history
+
+    fun deleteHistory(index: Int) {
+        history.removeAt(index)
+    }
+
+
     //Attributes
     var num1: Double = 0.0
     var num2: Double = 0.0

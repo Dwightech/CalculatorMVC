@@ -11,12 +11,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.calculatormvc.ui.theme.CalculatorMVCTheme
 import models.CalculatorModel
 
-class MainActivity : ComponentActivity() {
+class HistoryActivity : ComponentActivity() {
     private val calcModel = CalculatorModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_history)
         //Get input from UI
         val num1 = findViewById<EditText>(R.id.editTextNumber)
         val num2 = findViewById<EditText>(R.id.editTextNumber2)
@@ -28,11 +28,6 @@ class MainActivity : ComponentActivity() {
         val btnSqrt = findViewById<Button>(R.id.button_sqrt)
         val btnClear = findViewById<Button>(R.id.button_clear)
         val result = findViewById<TextView>(R.id.textViewAnswer)
-
-        val buttonHistory = findViewById<Button>(R.id.buttonHistory)
-        val intent = Intent(this, HistoryActivity::class.java)
-
-
 
         btnAdd.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
@@ -99,21 +94,5 @@ class MainActivity : ComponentActivity() {
 //                }
 //            }
 //        }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CalculatorMVCTheme {
-        Greeting("Android")
     }
 }

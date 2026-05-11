@@ -11,4 +11,6 @@
     <string name="btnSqrt">√</string>
     <string name="btnClear">Clear</string>
     <string name="zero">0.0</string>
+    <string name="calculator">Calculator</string>
+    <string name="history">History</string>
 </resources>
