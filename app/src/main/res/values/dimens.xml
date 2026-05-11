@@ -5,4 +5,5 @@
     <dimen name="marginBottom">10dp</dimen>
     <dimen name="marginTop">10dp</dimen>
     <dimen name="marginTopClear">30dp</dimen>
+    <dimen name="all">32dp</dimen>
 </resources>
