@@ -1,23 +1,18 @@
 package com.example.calculatormvc
 
 import android.os.Bundle
+import android.content.Intent
 import android.widget.*
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.calculatormvc.ui.theme.CalculatorMVCTheme
 import models.CalculatorModel
 
 class MainActivity : ComponentActivity() {
-    private val calcModel = CalculatorModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       enableEdgeToEdge()
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        //Get input from UI
+
         val num1 = findViewById<EditText>(R.id.editTextNumber)
         val num2 = findViewById<EditText>(R.id.editTextNumber2)
         val btnAdd = findViewById<Button>(R.id.button_add)
@@ -29,91 +24,76 @@ class MainActivity : ComponentActivity() {
         val btnClear = findViewById<Button>(R.id.button_clear)
         val result = findViewById<TextView>(R.id.textViewAnswer)
 
-        val buttonHistory = findViewById<Button>(R.id.buttonHistory)
-        val intent = Intent(this, HistoryActivity::class.java)
+        val btnHist = findViewById<Button>(R.id.buttonHistory)
 
-
+        btnHist.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
 
         btnAdd.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            calcModel.num2 = n2
-            val sum = n1 + n2
-            result.text = sum.toString()
+            CalculatorModel.num1 = n1
+            CalculatorModel.num2 = n2
 
-            //Use the Model
-            val calcResult = calcModel.add()
+            val calcResult = CalculatorModel.add()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory(calcResult.toString())
         }
+
         btnSubtract.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            calcModel.num2 = n2
-            val calcResult = calcModel.subtract().toString()
+            CalculatorModel.num1 = n1
+            CalculatorModel.num2 = n2
+            val calcResult = CalculatorModel.subtract()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory(calcResult.toString())
         }
+
         btnMultiply.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            calcModel.num2 = n2
-            val calcResult = calcModel.multiply()
+            CalculatorModel.num1 = n1
+            CalculatorModel.num2 = n2
+            val calcResult = CalculatorModel.multiply()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory("$n1 × $n2 = $calcResult")
         }
+
         btnDivide.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            calcModel.num2 = n2
-            val calcResult = calcModel.divide()
+            CalculatorModel.num1 = n1
+            CalculatorModel.num2 = n2
+            val calcResult = CalculatorModel.divide()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory("$n1 ÷ $n2 = $calcResult")
         }
+
         btnPercent.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
             val n2 = num2.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            calcModel.num2 = n2
-            val calcResult = calcModel.percent()
+            CalculatorModel.num1 = n1
+            CalculatorModel.num2 = n2
+            val calcResult = CalculatorModel.percent()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory("$n1 % $n2 = $calcResult")
         }
+
         btnSqrt.setOnClickListener {
             val n1 = num1.text.toString().toDoubleOrNull() ?: 0.0
-            calcModel.num1 = n1
-            val calcResult = calcModel.sqrt()
+            CalculatorModel.num1 = n1
+            val calcResult = CalculatorModel.sqrt()
             result.text = "Answer: $calcResult"
+            CalculatorModel.addHistory("√$n1 = $calcResult")
         }
+
         btnClear.setOnClickListener {
             num1.setText("")
             num2.setText("")
             result.text = "Answer: 0.0"
         }
-//        setContent {
-//            CalculatorMVCTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-//            }
-//        }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CalculatorMVCTheme {
-        Greeting("Android")
     }
 }
